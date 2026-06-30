@@ -6,7 +6,7 @@ It provides helpers for stock adjustments, reorder alerts, supplier catalog comp
 
 ## Requirements
 
-- Python 3.10
+- Python 3.14
 - pip
 
 ## Installation
