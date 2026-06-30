@@ -1,6 +1,6 @@
 """Supplier lookup and API version helpers."""
 
-from distutils.version import StrictVersion
+from packaging.version import Version
 from typing import Dict, Iterable
 
 from warehouse_ops.models import Supplier
@@ -11,7 +11,7 @@ def build_supplier_index(suppliers: Iterable[Supplier]) -> Dict[str, Supplier]:
 
 
 def validate_supplier_api_version(version: str, minimum: str = "1.0") -> bool:
-    return StrictVersion(version) >= StrictVersion(minimum)
+    return Version(version) >= Version(minimum)
 
 
 def preferred_supplier(suppliers: Iterable[Supplier]) -> Supplier:
