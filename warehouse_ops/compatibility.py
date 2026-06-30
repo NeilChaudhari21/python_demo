@@ -26,8 +26,4 @@ def can_load_module(module_name: str) -> bool:
 
 
 def platform_distribution_name() -> str:
-    dist = getattr(platform, "dist", None)
-    if dist is None:
-        return platform.system()
-    result = dist()
-    return " ".join(part for part in result if part)
+    return platform.system()
