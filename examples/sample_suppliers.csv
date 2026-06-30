@@ -1,0 +1,3 @@
+supplier_id,name,discount_rate,api_version,catalog_version
+sup-001,North Coast Packaging,0.05,1.2,2024.10
+sup-002,Metro Label Supply,0.10,1.1,2024.8

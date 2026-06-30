@@ -1,0 +1,4 @@
+sku,name,supplier_id,unit_cost,reorder_point,quantity_on_hand,location
+SKU-1001,Packing Tape,sup-001,4.25,25,12,A1
+SKU-1002,Corrugated Mailer,sup-001,0.85,100,250,B3
+SKU-2001,Barcode Labels,sup-002,7.50,20,18,C2
