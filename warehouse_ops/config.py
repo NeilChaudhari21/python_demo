@@ -4,7 +4,7 @@ import configparser
 
 
 def load_config(path: str) -> configparser.ConfigParser:
-    parser = configparser.SafeConfigParser()
+    parser = configparser.ConfigParser()
     parser.read(path)
     return parser
 
