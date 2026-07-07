@@ -1,11 +1,11 @@
 """Audit log formatting."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict
 
 
 def audit_timestamp() -> str:
-    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat() + "Z"
 
 
 def format_audit_log(action: str, actor: str, details: Dict[str, object]) -> str:
