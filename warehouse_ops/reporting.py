@@ -1,6 +1,6 @@
 """Report generation for inventory and reorder workflows."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Iterable, List
 
 from warehouse_ops.models import Product
@@ -10,7 +10,7 @@ from warehouse_ops.report_templates import INVENTORY_HEADER, REORDER_HEADER, for
 def generate_inventory_report(products: Iterable[Product]) -> str:
     rows = [INVENTORY_HEADER]
     rows.extend(format_inventory_row(product) for product in products)
-    rows.append("Generated,%s" % datetime.utcnow().isoformat())
+    rows.append("Generated,%s" % datetime.now(timezone.utc).isoformat())
     return "\n".join(rows)
 
 
