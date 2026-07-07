@@ -1,14 +1,14 @@
 """Date and time formatting helpers."""
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 def utc_now_iso() -> str:
-    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat() + "Z"
 
 
 def days_from_now(days: int) -> datetime:
-    return datetime.utcnow() + timedelta(days=days)
+    return datetime.now(timezone.utc) + timedelta(days=days)
 
 
 def parse_yyyymmdd(value: str) -> datetime:
