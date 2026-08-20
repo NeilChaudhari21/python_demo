@@ -26,12 +26,12 @@ class InventoryLedger:
         try:
             return self.products.pop(sku)
         except KeyError:
-            raise InventoryError("Unknown SKU: %s" % sku)
+            raise InventoryError(f"Unknown SKU: {sku}")
 
     def adjust_stock(self, sku: str, quantity_delta: int, reason: str = "") -> int:
         sku = validate_sku(sku)
         if sku not in self.products:
-            raise InventoryError("Unknown SKU: %s" % sku)
+            raise InventoryError(f"Unknown SKU: {sku}")
         product = self.products[sku]
         next_quantity = product.quantity_on_hand + int(quantity_delta)
         if next_quantity < 0:
