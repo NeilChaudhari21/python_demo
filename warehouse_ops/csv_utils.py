@@ -24,4 +24,4 @@ def require_columns(rows: List[Dict[str, str]], required: Iterable[str]) -> None
         return
     missing = set(required) - set(rows[0].keys())
     if missing:
-        raise ValueError("CSV missing required columns: %s" % ", ".join(sorted(missing)))
+        raise ValueError(f"CSV missing required columns: {', '.join(sorted(missing))}")
