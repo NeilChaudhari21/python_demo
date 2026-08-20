@@ -16,7 +16,7 @@ def validate_sku(sku: str) -> str:
     """Validate and normalize a SKU."""
     normalized = sku.strip().upper()
     if not is_valid_sku(normalized):
-        raise ValidationError("Invalid SKU: %s" % sku)
+        raise ValidationError(f"Invalid SKU: {sku}")
     return normalized
 
 
