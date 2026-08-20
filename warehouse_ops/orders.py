@@ -31,8 +31,4 @@ def calculate_order_total(order: PurchaseOrder, suppliers: Dict[str, Supplier] =
 
 
 def order_summary(order: PurchaseOrder) -> str:
-    return "PO %s for supplier %s has %d lines" % (
-        order.order_id,
-        order.supplier_id,
-        len(order.lines),
-    )
+    return f"PO {order.order_id} for supplier {order.supplier_id} has {len(order.lines)} lines"
