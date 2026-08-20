@@ -9,5 +9,5 @@ def audit_timestamp() -> str:
 
 
 def format_audit_log(action: str, actor: str, details: Dict[str, object]) -> str:
-    detail_text = "; ".join("%s=%s" % (key, value) for key, value in sorted(details.items()))
-    return "[%s] actor=%s action=%s %s" % (audit_timestamp(), actor, action, detail_text)
+    detail_text = "; ".join(f"{key}={value}" for key, value in sorted(details.items()))
+    return f"[{audit_timestamp()}] actor={actor} action={action} {detail_text}"
