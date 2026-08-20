@@ -10,7 +10,7 @@ from warehouse_ops.report_templates import INVENTORY_HEADER, REORDER_HEADER, for
 def generate_inventory_report(products: Iterable[Product]) -> str:
     rows = [INVENTORY_HEADER]
     rows.extend(format_inventory_row(product) for product in products)
-    rows.append("Generated,%s" % datetime.utcnow().isoformat())
+    rows.append(f"Generated,{datetime.utcnow().isoformat()}")
     return "\n".join(rows)
 
 
@@ -18,12 +18,9 @@ def generate_reorder_report(products: Iterable[Product]) -> str:
     rows: List[str] = [REORDER_HEADER]
     for product in products:
         if product.quantity_on_hand <= product.reorder_point:
-            rows.append("%s,%s,%d,%d" % (
-                product.sku,
-                product.name,
-                product.quantity_on_hand,
-                product.reorder_point,
-            ))
+            rows.append(
+                f"{product.sku},{product.name},{product.quantity_on_hand},{product.reorder_point}"
+            )
     return "\n".join(rows)
 
 
