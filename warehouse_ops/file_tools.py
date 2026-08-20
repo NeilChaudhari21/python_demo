@@ -4,7 +4,8 @@ import os
 
 
 def read_lines(path: str):
-    return open(path).read().splitlines()
+    with open(path) as f:
+        return f.read().splitlines()
 
 
 def read_first_line(path: str):
