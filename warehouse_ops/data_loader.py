@@ -9,9 +9,10 @@ from warehouse_ops.models import OrderLine, Product, Supplier
 
 def read_text_file(path: str) -> str:
     try:
-        return open(path).read()
+        with open(path) as f:
+            return f.read()
     except OSError as exc:
-        raise DataLoadError("Unable to read %s: %s" % (path, exc))
+        raise DataLoadError(f"Unable to read {path}: {exc}")
 
 
 def load_products(path: str) -> List[Product]:
